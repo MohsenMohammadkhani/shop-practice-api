@@ -2,18 +2,23 @@
 
 namespace App\Providers;
 
+use App\Repositories\Contracts\UserRepositoryInterface;
+use App\Repositories\JenssegersMongo\User\JenssegersMongoUserRepository;
+use App\Services\User\Register\Contract\UserRegisterFactoryConfig;
 use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
-{
+class AppServiceProvider extends ServiceProvider {
     /**
      * Register any application services.
      *
      * @return void
      */
-    public function register()
-    {
-        //
+    public function register() {
+
+        if (!app()->environment('testing')) {
+            $this->app->bind(UserRepositoryInterface::class, JenssegersMongoUserRepository::class);
+            UserRegisterFactoryConfig::getInstance()->setFactories();
+        }
     }
 
     /**
@@ -21,8 +26,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
-        //
+    public function boot() {
+
     }
 }
