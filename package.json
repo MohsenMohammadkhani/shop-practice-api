@@ -1,0 +1,6 @@
+{
+    "private": true,
+    "scripts": {
+        "swagger-build": "nodemon ./storage/api-docs/index.js "
+    }
+}
