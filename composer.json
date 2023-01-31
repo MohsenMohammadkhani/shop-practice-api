@@ -51,7 +51,7 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ],
-        "test": "./vendor/bin/phpunit "
+        "test": "posts./vendor/bin/phpunit "
     },
     "extra": {
         "laravel": {

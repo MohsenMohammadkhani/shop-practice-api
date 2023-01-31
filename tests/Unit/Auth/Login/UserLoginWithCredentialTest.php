@@ -19,7 +19,7 @@ class UserLoginWithCredentialTest extends TestCase
         $password = "asdASD123";
         $this->makeUserWithCredentialForTest($email, $password);
         $userLoginWithCredential = new UserLoginWithCredential();
-        $resultUserLoginWithCredential = $userLoginWithCredential->userLogin($email, $password);
+        $resultUserLoginWithCredential = $userLoginWithCredential->loginUser($email, $password);
         $this->assertTrue($resultUserLoginWithCredential);
     }
 

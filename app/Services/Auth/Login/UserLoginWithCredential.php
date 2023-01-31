@@ -2,27 +2,21 @@
 
 namespace App\Services\Auth\Login;
 
-use App\Services\User\Find\UserFindWithEmail;
+use App\Models\User;
 use Exception;
 use Illuminate\Support\Facades\Hash;
 
 class UserLoginWithCredential
 {
-    private $userFindWithEmail;
-
-    public function __construct()
-    {
-        $this->userFindWithEmail = new UserFindWithEmail();
-    }
 
     /**
      * @param string $email
      * @param string $password
      * @return bool
      */
-    public function userLogin(string $email, string $password):bool
+    public function loginUser(string $email, string $password):bool
     {
-        $user = $this->userFindWithEmail->findUserWithEmail($email);
+        $user = User::where('email', $email)->first();
         if (!$user) {
             throw new  Exception(__('auth.user_dose_not_exist_with_this_email'));
         }
