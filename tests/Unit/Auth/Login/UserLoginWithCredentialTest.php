@@ -4,6 +4,7 @@ namespace Tests\Unit\Auth\Login;
 
 use App\Models\User;
 use App\Services\Auth\Login\UserLoginWithCredential;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Hash;
 use Tests\RefreshDatabase;
 use Tests\TestCase;
@@ -11,8 +12,9 @@ use Tests\TestCase;
 class UserLoginWithCredentialTest extends TestCase
 {
 
-    use RefreshDatabase;
+//    use RefreshDatabase;
 
+    use DatabaseTransactions;
     public function test_login_user()
     {
         $email = "mohsenmohammadkhanigla@gmail.com";

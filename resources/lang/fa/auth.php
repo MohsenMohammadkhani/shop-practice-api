@@ -20,6 +20,8 @@ return [
     "user_dose_not_exist_with_this_email" => "کاربری با همچنین ایمیل موجود نیست.",
     "user_password_is_wrong" => "رمز عبور کاربر اشتباه است.",
 
+    "code_from_google_for_auth_is_not_exist" => "کد از طرف google موجود نیست.",
+
     "login_user_with_credentials_success" => "ورود شما با موفقیت انجام شد. ",
 
     "this_email_registered_already" => "این ایمیل از قبل ثبت نام شده است.",
@@ -27,5 +29,6 @@ return [
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
-
+    'error_happened_when_get_token_form_google_with_code' => 'یک خطا هنگام  دریافت توکن از گوگل با کد اتفاق افتاده است.',
+    'error_happened_when_get_user_info_from_google_with_tokenID' => 'یک خطا هنگام دریافت اطلاعات کاربر از گوگل با توکن اتفاق افتاده است.',
 ];

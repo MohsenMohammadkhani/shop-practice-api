@@ -2,19 +2,26 @@
 
 namespace App\Models;
 
-use Jenssegers\Mongodb\Eloquent\Model;
-use Jenssegers\Mongodb\Eloquent\SoftDeletes;
+//use Jenssegers\Mongodb\Eloquent\Model;
+//use Jenssegers\Mongodb\Eloquent\SoftDeletes;
 
-class User extends Model {
-    use SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
-    protected $guarded = [];
-    protected $primaryKey = '_id';
-    protected $collection = 'users';
+
+class User extends Authenticatable {
+    use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = [
-        'email', 'password',
+        'email',
+        'password',
     ];
+
+    protected $guarded = [];
+    protected $primaryKey = 'id';
+    protected $collection = 'users';
 
 
 }

@@ -3,10 +3,11 @@
 namespace App\Http\Requests\Auth\Login;
 
 use App\Helper\RestFullAPIHttpResponseException;
+use App\Http\Requests\BaseRequests;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserLoginWithCredentialsRequest extends FormRequest
+class UserLoginWithCredentialsRequest extends BaseRequests
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -42,7 +43,7 @@ class UserLoginWithCredentialsRequest extends FormRequest
     }
 
     public function failedValidation(Validator $validator) {
-        RestFullAPIHttpResponseException::showException([
+         $this->showException([
             'success' => false,
             'message' => $validator->errors(),
         ], 422, [

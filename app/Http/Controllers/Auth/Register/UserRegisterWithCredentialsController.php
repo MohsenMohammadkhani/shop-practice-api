@@ -31,7 +31,6 @@ class UserRegisterWithCredentialsController extends BaseController
                     'message' => $error->getMessage(),
                 ]
                 , 422);
-
         }
     }
 

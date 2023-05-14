@@ -2,13 +2,15 @@
 
 namespace Tests\Feature\Auth\Login;
 
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\RefreshDatabase;
 use Tests\TestCase;
 
 class UserLoginWithCredentialTest extends TestCase
 {
-    use RefreshDatabase;
+//    use RefreshDatabase;
 
+    use DatabaseTransactions;
     public function test_login_user_successful()
     {
         $email = "mohsen@gmail.com";

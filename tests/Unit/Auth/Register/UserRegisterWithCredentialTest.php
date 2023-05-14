@@ -4,13 +4,14 @@ namespace Tests\Unit\Auth\Register;
 
 use App\Models\User;
 use App\Services\Auth\Register\UserRegisterWithCredential;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\RefreshDatabase;
 use Tests\TestCase;
 
 class UserRegisterWithCredentialTest extends TestCase
 {
-    use RefreshDatabase;
-
+//    use RefreshDatabase;
+    use DatabaseTransactions;
     public function test_register_user()
     {
         $email = "mohsenmohammadkhanigla@gmail.com";

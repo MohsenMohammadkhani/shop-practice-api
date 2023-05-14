@@ -24,6 +24,7 @@ class UserLoginWithCredential
         if (!Hash::check($password, $userPassword)) {
             throw new  Exception(__('auth.user_password_is_wrong'));
         }
+
         return true;
     }
 
