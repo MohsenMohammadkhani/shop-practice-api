@@ -24,7 +24,7 @@ class UserRegisterWithGoogleTest extends TestCase
             ], 200),
         ]);
         $userRegisterWithGoogle = new UserRegisterWithGoogle();
-        $this->assertTrue($userRegisterWithGoogle->userRegister("dkajdkansxkasdifb5a4sdf"));
+        $this->assertTrue($userRegisterWithGoogle->userRegister("dkajdkansxkasdifb5a4sdf", "/api/v1/auth/register-with-google"));
     }
 
 }

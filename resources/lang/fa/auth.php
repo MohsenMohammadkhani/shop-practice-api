@@ -15,6 +15,8 @@ return [
     "this_user_register_already" => "این کاربر از قبل ثبت نام شده.",
     "register_user_with_credentials_success" => "ثبت نام کاربر با اطلاعات با موفقیت  انجام شد.",
 
+    "login_user_with_google_success" => "ورود کاربر با گوکل با موفقیت  انجام شد.",
+
     "an_error_happened_when_user_wants_to_register_with_credential" => "یک ارور هنگام ثبت کاربر با اطلاعات رخ داده است.",
 
     "user_dose_not_exist_with_this_email" => "کاربری با همچنین ایمیل موجود نیست.",

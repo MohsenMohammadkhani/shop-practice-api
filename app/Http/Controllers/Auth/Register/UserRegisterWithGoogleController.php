@@ -14,7 +14,7 @@ class UserRegisterWithGoogleController extends BaseController
     {
         try {
             $userRegisterWithGoogle = new UserRegisterWithGoogle();
-            $userRegisterWithGoogle->userRegister($request->input('code'));
+            $userRegisterWithGoogle->userRegister($request->input('code'), "/api/v1/auth/register-with-google");
             return $this->showResponse([
                 'success' => true,
                 'message' => __('auth.register_user_with_credentials_success'),

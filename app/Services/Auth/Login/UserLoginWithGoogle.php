@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Services\Auth\Register;
+namespace App\Services\Auth\Login;
 
 use App\Models\User;
 use App\Services\Auth\Google\GetUserInfoFromGoogle;
+use Exception;
 
-class UserRegisterWithGoogle
+class UserLoginWithGoogle
 {
     private $getUserInfoFromGoogle;
 
@@ -14,21 +15,17 @@ class UserRegisterWithGoogle
         $this->getUserInfoFromGoogle = new GetUserInfoFromGoogle();
     }
 
-    /**
-     * @param string $code
-     * @return void
-     */
-    public function userRegister(string $code, string $redirectUri)
+    public function userLogin(string $code, $redirectUri)
     {
         $userInfoFromGoogle = $this->getUserInfoFromGoogle->handler($code, $redirectUri);
         $userEmail = $userInfoFromGoogle["email"];
         $user = User::where('email', $userEmail)->first();
-        if ($user instanceof User) {
-            throw new \Exception(__('auth.this_email_registered_already'));
+
+        if (!$user) {
+
+            throw new  Exception(__('auth.user_dose_not_exist_with_this_email'));
         }
-        User::create([
-            "email" => $userEmail
-        ]);
+
         return true;
     }
 }

@@ -2,6 +2,7 @@
 use App\Http\Controllers\Auth\Register\UserRegisterWithCredentialsController;
 use App\Http\Controllers\Auth\Login\UserLoginWithCredentialsController;
 use App\Http\Controllers\Auth\Register\UserRegisterWithGoogleController;
+use \App\Http\Controllers\Auth\Login\UserLoginWithGoogleController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,6 +19,7 @@ Route::prefix('v1')->group(function () {
         Route::post("/login-with-credentials", [UserLoginWithCredentialsController::class, 'userLogin']);
 
         Route::get("/register-with-google", [UserRegisterWithGoogleController::class, 'userRegister']);
+        Route::get("/login-with-google", [UserLoginWithGoogleController::class, 'userLogin']);
 
     });
 });

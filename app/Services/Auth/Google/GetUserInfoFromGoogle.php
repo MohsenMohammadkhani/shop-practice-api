@@ -19,9 +19,9 @@ class GetUserInfoFromGoogle
      * @return array
      * @throws \Exception
      */
-    public function handler(string $codeFromGoogle): array
+    public function handler(string $codeFromGoogle, string $redirectUri): array
     {
-        $resultGetTokenFromGoogleWithCode = $this->getTokenFromGoogleWithCode->handler($codeFromGoogle, env("APP_DOMAIN") . "/api/v1/auth/register-with-google");
+        $resultGetTokenFromGoogleWithCode = $this->getTokenFromGoogleWithCode->handler($codeFromGoogle, env("APP_DOMAIN") . $redirectUri);
         return $this->getUserInfoFromGoogleWithTokenID->handler($resultGetTokenFromGoogleWithCode['id_token']);
     }
 }
